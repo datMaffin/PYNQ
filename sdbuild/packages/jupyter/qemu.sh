@@ -13,6 +13,13 @@ else
 	export NODE_OPTIONS=--max-old-space-size=4096
 fi
 
+
+# Install a recent nodejs for jupyter
+echo deb https://deb.nodesource.com/node_14.x bionic main > /etc/apt/sources.list.d/nodesource.list
+apt-get update
+apt-get install -y --allow-unauthenticated nodejs
+
+
 jupyter notebook --generate-config --allow-root
 
 cat - >> /root/.jupyter/jupyter_notebook_config.py <<EOT
